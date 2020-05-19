@@ -4,11 +4,19 @@ import './index.css'
 import App from './App'
 import * as serviceWorker from './serviceWorker'
 
+const fn = (array) => {
+  if (array.includes(1)) {
+    //
+  }
+}
+
+fn([])
+
 ReactDOM.render(
   <React.StrictMode>
     <App />
   </React.StrictMode>,
-  document.getElementById('root'),
+  document.querySelector('#root'),
 )
 
 // If you want your app to work offline and load faster, you can change

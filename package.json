@@ -12,7 +12,7 @@
   "scripts": {
     "start": "react-scripts start",
     "eslint-fix": "eslint --fix src",
-    "prettier-write": "prettier src/**/*.{js,css} --write"
+    "stylelint": "stylelint --fix src"
   },
   "prettier": {
     "bracketSpacing": false,
@@ -21,7 +21,13 @@
     "trailingComma": "all"
   },
   "eslintConfig": {
-    "extends": "react-app"
+    "extends": [
+      "react-app",
+      "plugin:unicorn/recommended"
+    ],
+    "rules": {
+      "unicorn/prevent-abbreviations": "warn"
+    }
   },
   "browserslist": {
     "production": [
@@ -37,13 +43,28 @@
   },
   "devDependencies": {
     "eslint": "6.8.0",
+    "eslint-plugin-unicorn": "20.0.0",
     "husky": "4.2.5",
     "prettier": "2.0.5",
-    "pretty-quick": "2.0.1"
+    "pretty-quick": "2.0.1",
+    "stylelint": "13.5.0",
+    "stylelint-order": "4.0.0"
   },
   "husky": {
     "hooks": {
       "pre-commit": "pretty-quick --staged"
+    }
+  },
+  "stylelint": {
+    "plugins": [
+      "stylelint-order"
+    ],
+    "rules": {
+      "order/order": [
+        "custom-properties",
+        "declarations"
+      ],
+      "order/properties-alphabetical-order": true
     }
   }
 }
